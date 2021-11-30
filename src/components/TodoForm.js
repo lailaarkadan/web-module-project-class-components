@@ -9,7 +9,7 @@ class TodoForm extends React.Component {
     }
     handleSubmit = (e)=> {
         e.preventDefault();
-        this.props.handlAdd(this.state.input);
+        this.props.handleAdd(this.state.input);
 
     }
     handleChange = (e) => {
@@ -20,7 +20,7 @@ class TodoForm extends React.Component {
     }
     render() {
         return( <form>
-            <input/>
+            <input onChange={this.handleChange}/>
             <button onClick={this.handleSubmit}> Add</button>
             </form>);
 
