@@ -9,7 +9,7 @@ class TodoForm extends React.Component {
     }
     handleSubmit = (e)=> {
         e.preventDefault();
-        this.props.handlAdd('exploding kittens');
+        this.props.handlAdd(this.state.input);
 
     }
     handleChange = (e) => {
