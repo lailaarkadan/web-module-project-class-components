@@ -36,22 +36,51 @@ class App extends React.Component {
       ]
     }
   }
-
   
+    handleAdd = (task) => {
+      const newList={
+      task: task,
+      id: Date.now(),
+     completed: false
+      };
+    
+  
+
+    
+      this.setState({
+      ...this.state,
+      list: [...this.state.list, newList]
+     });
+}
+    
+  
+    
+   handleClear = () => {
+    
+    this.state({
+      ...this.state,
+      list: this.state.list.filter(list => {
+        return (list.completed === false);
+      })
+    })
+  }
+
   render() {
     const { list } = this.state;
     return (
       <div>
         <h2>Todos</h2>
-       <TodoList list={list}/>
+       <TodoList handleAdd={this.handleAdd} list={list}/>
         
           <TodoForm/>
           
           
-        <button>Clear</button>
+        <button onClick= {this.handleClear}>Clear</button>
       </div>
     );
+    }
   }
-}
+    
+
 
 export default App;
